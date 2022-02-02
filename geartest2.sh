@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#!/bin/bash
 
 source ~/.cargo/env
 rustup default stable
