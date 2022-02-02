@@ -7,7 +7,7 @@ curl https://sh.rustup.rs -sSf | sh
 source ~/.cargo/env
 
 export PATH="$HOME/.cargo/bin:$PATH"
-
+export SHELLOPTS set -o igncr 
 
 
 
