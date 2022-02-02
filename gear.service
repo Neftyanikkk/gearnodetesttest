@@ -6,7 +6,7 @@ Type=simple
 User=root
 WorkingDirectory=/root/
 ExecStart=/root/gear-node \
-        --name $nodename \
+        --name GearNode \
         --execution wasm \
         --log runtime
 Restart=always
