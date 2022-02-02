@@ -32,14 +32,13 @@ git clone https://github.com/gear-tech/gear.git
 cd gear/node
 cargo build -–release
 
+echo -e "Please enter your node name: "
+read nodename
 
 cd /etc/systemd/system
 touch gear-node.service
 sudo nano gear-node.service
 
-
-echo -e "Please enter your node name: "
-read nodename
 
 
 echo "[+] Creating service gear-node"
