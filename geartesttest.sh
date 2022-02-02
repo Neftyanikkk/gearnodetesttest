@@ -6,6 +6,8 @@ sudo apt install -y git clang curl libssl-dev llvm libudev-dev
 curl https://sh.rustup.rs -sSf | sh
 source ~/.cargo/env
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
 
 
 
