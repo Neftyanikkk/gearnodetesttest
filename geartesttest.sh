@@ -1,8 +1,8 @@
 #!/bin/bash
-
+sudo apt-get update
+sudo apt update && sudo apt upgrade -y
 sudo apt install curl
 curl https://sh.rustup.rs -sSf | sh
-sudo apt update && sudo apt upgrade -y
 sudo apt-get install dos2unix
 sudo apt install -y git clang curl libssl-dev llvm libudev-dev
 sudo apt-get install nano
