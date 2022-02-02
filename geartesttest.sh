@@ -1,12 +1,13 @@
 #!/bin/bash
 
+sudo apt install curl
+curl https://sh.rustup.rs -sSf | sh
 sudo apt update && sudo apt upgrade -y
 sudo apt-get install dos2unix
-sudo apt install curl
 sudo apt install -y git clang curl libssl-dev llvm libudev-dev
 sudo apt-get install nano
 sudo apt install cargo
-curl --proto --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 
 curl -s https://raw.githubusercontent.com/cryptongithub/init/main/logo.sh | bash && sleep 1
 echo "You have run the Crypton Academy Gear node setup script "
