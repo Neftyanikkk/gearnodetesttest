@@ -1,3 +1,4 @@
+tee <<EOF >/dev/null /etc/systemd/system/geaar.service 
 [Unit]
 Description=Gear Node
 After=network.target
@@ -5,7 +6,7 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/root/
-ExecStart=/root/gear-node \
+ExecStart=/root/gearnode1 \
         --name GearNode \
         --execution wasm \
         --log runtime
