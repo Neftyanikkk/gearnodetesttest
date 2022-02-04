@@ -35,8 +35,6 @@ cargo build -–release
 
 cd /etc/systemd/system
 touch gear-node.service
-sudo nano gear-node.service
-
 
 
 echo "[+] Creating service gear-node"
