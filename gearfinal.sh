@@ -31,3 +31,4 @@ sudo cp gear-node /root
 systemctl daemon-reload
 systemctl start gear-node
 systemctl status gear-node
+journalctl -n 100 -f -u gear-node
