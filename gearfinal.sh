@@ -23,7 +23,7 @@ cargo build release
 
    
 
-tee <<EOF >/etc/systemd/system/gear-node.service
+tee <<EOF >/dev/null /etc/systemd/system/gear-node.service
 [Unit]
 Description=Gear Node
 After=network.target
