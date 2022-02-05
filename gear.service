@@ -1,18 +1,19 @@
-tee <<EOF >/dev/null /etc/systemd/system/geaar.service 
-[Unit]
+sudo tee <<EOF >/dev/null /etc/systemd/system/SERVICEGear.service
 Description=Gear Node
 After=network.target
+
 [Service]
 Type=simple
 User=root
 WorkingDirectory=/root/
-ExecStart=/root/gearnode1 \
-        --name GearNode \
+ExecStart=/root/gear-node \
+        --name gear-node \
         --execution wasm \
         --log runtime
 Restart=always
 RestartSec=3
 LimitNOFILE=10000
+
 [Install]
 WantedBy=multi-user.target
 EOF
