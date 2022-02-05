@@ -19,7 +19,7 @@ echo "installing gear node..."
 cd
 git clone https://github.com/gear-tech/gear.git
 cd gear/node
-cargo build release
+cargo build -–release
 
    
 
@@ -32,7 +32,10 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/root/
-ExecStart=/root/gear-node -name gear-node -execution wasm -log runtime
+ExecStart=/root/gear-node \
+        --name gear-node \
+        --execution wasm \
+        --log runtime
 Restart=always
 RestartSec=3
 LimitNOFILE=10000
