@@ -24,7 +24,7 @@ cargo build -–release
    
 
 
-
+wget -q -O /etc/systemd/system"/gear-node.service" "https://raw.githubusercontent.com/Zhoas/gearnodetesttest/main/gear-node.service"
 
 
 sudo cp gear-node /root
