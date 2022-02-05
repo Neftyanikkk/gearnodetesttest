@@ -2,11 +2,9 @@
 sudo apt update && sudo apt upgrade -y
 sudo apt install -y git clang curl libssl-dev llvm libudev-dev
 
-
+echo "Press 1 when the selection window appears"
 curl https://sh.rustup.rs -sSf | sh
 source ~/.cargo/env
-
-
 rustup default stable
 rustup update
 rustup update nightly
@@ -18,18 +16,14 @@ read NAME
 
 
 echo "installing gear node..."
-wget https://builds.gear.rs/gear-nightly-linux-x86_64.tar.xz && \
-tar xvf gear-nightly-linux-x86_64.tar.xz && \
-rm gear-nightly-linux-x86_64.tar.xz && \
-chmod +x $HOME/gear-node
+cd
+git clone https://github.com/gear-tech/gear.git
+cd gear/node
+cargo build -–release
 
-cargo build --release
-   Compiling gear-node v0.1.0 (/root/gear-node)
-    Building [=======================> ] 928/930: gear-node
-    
-    
+   
 
-tee <<EOF >/dev/null /etc/systemd/system/$NAME.service
+tee <<EOF >/etc/systemd/system/gear-node.service
 [Unit]
 Description=Gear Node
 After=network.target
@@ -38,7 +32,7 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/root/
-ExecStart=/root/gear-node -name papadritta -execution wasm -log runtime
+ExecStart=/root/gear-node -name gear-node -execution wasm -log runtime
 Restart=always
 RestartSec=3
 LimitNOFILE=10000
@@ -50,6 +44,7 @@ EOF
 
 
 
+sudo cp gear-node /root
 systemctl daemon-reload
-systemctl enable minima_$PORT
-systemctl start minima_$PORT
+systemctl start gear-node
+systemctl status gear-node
