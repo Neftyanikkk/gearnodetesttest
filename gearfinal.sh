@@ -19,7 +19,7 @@ echo "installing gear node..."
 cd
 git clone https://github.com/gear-tech/gear.git
 cd gear/node
-cargo build -–release
+cargo build release
 
    
 
