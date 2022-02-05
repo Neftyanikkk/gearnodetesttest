@@ -1,4 +1,4 @@
-sudo tee <<EOF >/dev/null /etc/systemd/system/SERVICEGear.service
+[Unit]
 Description=Gear Node
 After=network.target
 
@@ -16,4 +16,3 @@ LimitNOFILE=10000
 
 [Install]
 WantedBy=multi-user.target
-EOF
