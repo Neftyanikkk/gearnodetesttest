@@ -29,7 +29,7 @@ cargo build --release
     
     
 
-    tee <<EOF >/dev/null /etc/systemd/system/$NAME.service
+tee <<EOF >/dev/null /etc/systemd/system/$NAME.service
 [Unit]
 Description=Gear Node
 After=network.target
