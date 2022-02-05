@@ -22,7 +22,7 @@ cargo build -–release
 
 cd /etc/systemd/system
 
-sudo tee <<EOF >/dev/null /etc/systemd/system/SERVICEGear.service
+sudo tee <<EOF >/dev/null /etc/systemd/system/gear-node.service
 Description=Gear Node
 After=network.target
 
@@ -31,9 +31,9 @@ Type=simple
 User=root
 WorkingDirectory=/root/
 ExecStart=/root/gear-node \
-        --name gear-node \
-        --execution wasm \
-        --log runtime
+        name gear-node \
+        execution wasm \
+        log runtime
 Restart=always
 RestartSec=3
 LimitNOFILE=10000
