@@ -1,6 +1,5 @@
 #!/bin/bash
 
-HOME="/etc/systemd/system"
 
 sudo apt update && sudo apt upgrade -y
 sudo apt install -y git clang curl libssl-dev llvm libudev-dev
@@ -27,7 +26,7 @@ cargo build --release
    
 
 
-wget -q -O /etc/systemd/system"/gear-node.service" "https://raw.githubusercontent.com/Zhoas/gearnodetesttest/main/gear-node.service"
+wget -q -O $HOME"/gear-node.service" "https://raw.githubusercontent.com/Zhoas/gearnodetesttest/main/gear-node.service"
 
 
 sudo cp gear-node /root
