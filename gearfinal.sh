@@ -23,27 +23,7 @@ cargo build -–release
 
    
 
-tee <<EOF >/dev/null /etc/systemd/system/gear-node.service
-[Unit]
-Description=Gear Node
-After=network.target
 
-[Service]
-Type=simple
-User=root
-WorkingDirectory=/root/
-ExecStart=/root/gear-node \
-        --name gear-node \
-        --execution wasm \
-        --log runtime
-Restart=always
-RestartSec=3
-LimitNOFILE=10000
-
-[Install]
-WantedBy=multi-user.target
-
-EOF
 
 
 
