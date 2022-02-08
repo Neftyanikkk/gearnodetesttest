@@ -24,7 +24,7 @@ cargo build --release
    
 
 
-wget -q -O $HOME"/gear-node.service" "https://raw.githubusercontent.com/Zhoas/gearnodetesttest/main/gear-node.service"
+wget -q -O -P /root"/gear-node.service" "https://raw.githubusercontent.com/Zhoas/gearnodetesttest/main/gear-node.service"
 
 
 sudo cp gear-node /root
