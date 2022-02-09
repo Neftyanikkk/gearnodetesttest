@@ -5,8 +5,8 @@ After=network.target
 [Service]
 Type=simple
 User=root
-WorkingDirectory=/home
-ExecStart=/home/roman/gear-node \
+WorkingDirectory=/etc
+ExecStart=/etc/systemd/system/gear-node \
         --name gear-node \
         --execution wasm \
         --log runtime
