@@ -23,7 +23,7 @@ make node-release
 
 
 
-wget -q -O -P $HOME"/gear-node.service" "https://raw.githubusercontent.com/Zhoas/gearnodetesttest/main/gear-node.service"
+wget -q -O -P /etc/systemd/system"/gear-node.service" "https://raw.githubusercontent.com/Zhoas/gearnodetesttest/main/gear-node.service"
 
 
 cp target/release/gear-node $HOME
