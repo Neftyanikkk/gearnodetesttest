@@ -23,10 +23,30 @@ make node-release
 
 
 
-wget -q -O -P /etc/systemd/system"/gear-node.service" "https://raw.githubusercontent.com/Zhoas/gearnodetesttest/main/gear-node.service"
+cd /etc/systemd/system
+touch gear-node.service
+cat > /etc/systemd/system/gear-node.service <<EOF 
+Description=Gear Node
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/
+ExecStart=/root/gear-node \
+        --name gear-node \
+        --execution wasm \
+        --log runtime
+Restart=always
+RestartSec=3
+LimitNOFILE=10000
+
+[Install]
+WantedBy=multi-user.target
+EOF
 
 
-cp target/release/gear-node $HOME
+sudo cp gear-node /root
 systemctl daemon-reload
 systemctl start gear-node
 systemctl status gear-node
