@@ -10,9 +10,6 @@ rustup update
 rustup update nightly
 rustup target add wasm32-unknown-unknown --toolchain nightly
 
-#добавление названия ноды
-echo "write your node name ↓↓↓"
-read NAME
 
 
 echo "installing gear node..."
@@ -24,7 +21,7 @@ cargo build --release
    
 
 
-wget -q -O -P /root"/gear-node.service" "https://raw.githubusercontent.com/Zhoas/gearnodetesttest/main/gear-node.service"
+wget -q -O -P $HOME"/gear-node.service" "https://raw.githubusercontent.com/Zhoas/gearnodetesttest/main/gear-node.service"
 
 
 sudo cp gear-node /root
