@@ -10,7 +10,7 @@ ExecStart=/home/roman/gear-node \
         --name gear-node \
         --execution wasm \
         --log runtime
-Restart=always
+Restart=on-failure
 RestartSec=3
 LimitNOFILE=10000
 
