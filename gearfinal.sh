@@ -17,9 +17,8 @@ rustup target add wasm32-unknown-unknown --toolchain nightly
 echo "installing gear node..."
 cd
 git clone https://github.com/gear-tech/gear.git
-cd gear
-make node-release
-
+cd gear/node
+cargo build --release
 
 
 cd /etc/systemd/system
