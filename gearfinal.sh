@@ -10,22 +10,17 @@ rustup update
 rustup update nightly
 rustup target add wasm32-unknown-unknown --toolchain nightly
 
-#добавление названия ноды
-echo "write your node name ↓↓↓"
-read NAME
+#добавить названия ноды
 
-
-echo "installing gear node..."
-cd
-git clone https://github.com/gear-tech/gear.git
-cd gear
-make node-release
+wget https://builds.gear.rs/gear-nightly-linux-x86_64.tar.xz && \
+tar xvf gear-nightly-linux-x86_64.tar.xz && \
+rm gear-nightly-linux-x86_64.tar.xz && \
+chmod +x $HOME/gear-node
+cargo build -–release
 
 
 
-cd /etc/systemd/system
-touch gear-node.service
-cat > /etc/systemd/system/gear-node.service <<EOF 
+tee <<EOF >/dev/null /etc/systemd/system/gear-node.service 
 Description=Gear Node
 After=network.target
 
@@ -34,20 +29,23 @@ Type=simple
 User=root
 WorkingDirectory=/root/
 ExecStart=/root/gear-node \
-        --name gear-node \
+        --name gearnodecrypton \
         --execution wasm \
         --log runtime
-Restart=always
+Restart=on-failure
 RestartSec=3
 LimitNOFILE=10000
 
 [Install]
 WantedBy=multi-user.target
-EOF
+EOF 
+
+
 
 
 sudo cp gear-node /root
 systemctl daemon-reload
 systemctl start gear-node
 systemctl status gear-node
+
 journalctl -n 100 -f -u gear-node
