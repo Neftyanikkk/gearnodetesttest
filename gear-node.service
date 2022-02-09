@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/root/
-ExecStart=/root/gear-node \
+ExecStart=/home/roman/gear-node \
         --name gear-node \
         --execution wasm \
         --log runtime
