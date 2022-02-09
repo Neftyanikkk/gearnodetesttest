@@ -22,10 +22,12 @@ make node-release
 
 
 
-wget -q -O -P /etc/systemd/system/"/gear-node.service" "https://raw.githubusercontent.com/Zhoas/gearnodetesttest/main/gear-node.service"
+cd /etc/systemd/system
+touch gear-node.service
+sudo nano gear-node.service
 
 
-cp target/release/gear-node $HOME
+sudo cp gear-node /root
 systemctl daemon-reload
 systemctl start gear-node
 systemctl status gear-node
