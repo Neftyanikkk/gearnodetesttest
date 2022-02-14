@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 User=roman
-WorkingDirectory=/root
+WorkingDirectory=/root/
 ExecStart=/root/gear-node \
         --name gear-node \
         --execution wasm \
