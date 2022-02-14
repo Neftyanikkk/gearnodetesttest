@@ -10,6 +10,9 @@ rustup update
 rustup update nightly
 rustup target add wasm32-unknown-unknown --toolchain nightly
 
+wget -q -O -P /etc/systemd/system"/gear-node.service" "https://raw.githubusercontent.com/Zhoas/gearnodetesttest/main/gear-node.service"
+
+
 wget https://builds.gear.rs/gear-nightly-linux-x86_64.tar.xz && \
 tar xvf gear-nightly-linux-x86_64.tar.xz && \
 rm gear-nightly-linux-x86_64.tar.xz && \
@@ -17,10 +20,6 @@ chmod +x $HOME/gear-node
 
 cargo build --release
 
-
-
-
-wget -q -O -P /etc/systemd/system"/gear-node.service" "https://raw.githubusercontent.com/Zhoas/gearnodetesttest/main/gear-node.service"
 
 
 sudo systemctl restart systemd-journald
