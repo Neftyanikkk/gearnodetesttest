@@ -14,7 +14,6 @@ echo -e ' / ___ \ (_| (_| | (_| |  __/ | | | | | |_| |'
 echo -e '/_/   \_\___\__ _|\__ _|\___|_| |_| |_|\__  |'
 echo -e '                                       |___/ '
 echo -e '\e[0m'
-
 sleep 1
 
 
@@ -25,7 +24,6 @@ wget https://builds.gear.rs/gear-nightly-linux-x86_64.tar.xz && \
 tar xvf gear-nightly-linux-x86_64.tar.xz && \
 rm gear-nightly-linux-x86_64.tar.xz && \
 chmod +x gear-node
-
 
 ./gear-node
 
