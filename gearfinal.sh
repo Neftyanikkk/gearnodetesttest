@@ -25,8 +25,7 @@ tar xvf gear-nightly-linux-x86_64.tar.xz && \
 rm gear-nightly-linux-x86_64.tar.xz && \
 chmod +x gear-node
 
+wget -q -O -P /etc/systemd/system "https://raw.githubusercontent.com/Zhoas/gearnodetesttest/main/gear-node.service"
+
 ./gear-node
 
-
-sudo systemctl status gear-node
-sudo journalctl -n 100 -f -u gear-node
