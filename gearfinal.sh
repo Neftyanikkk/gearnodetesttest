@@ -27,5 +27,5 @@ chmod +x gear-node
 
 wget -q -O -P /etc/systemd/system "https://raw.githubusercontent.com/Zhoas/gearnodetesttest/main/gear-node.service"
 
-./gear-node
+RUST_LOG="gwasm=debug" gear-node --dev --tmp
 
