@@ -20,12 +20,14 @@ sleep 1
 sudo apt update && sudo apt upgrade -y
 sudo apt install -y git clang curl libssl-dev llvm libudev-dev
 
-wget https://builds.gear.rs/gear-nightly-linux-x86_64.tar.xz && \
-tar xvf gear-nightly-linux-x86_64.tar.xz && \
-rm gear-nightly-linux-x86_64.tar.xz && \
-chmod +x gear-node
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-wget -q -O -P /etc/systemd/system "https://raw.githubusercontent.com/Zhoas/gearnodetesttest/main/gear-node.service"
+rustup toolchain add nightly
+rustup target add wasm32-unknown-unknown --toolchain nightly
+git clone https://github.com/gear-tech/gear.git
+cd gear
+make node-release
 
-RUST_LOG="gwasm=debug" gear-node --dev --tmp
+
+
 
