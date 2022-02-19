@@ -16,7 +16,7 @@ git clone https://github.com/gear-tech/gear
 cd gear
 make node-release
 
-tee <<EOF >/dev/null /etc/systemd/system/gear-node.service
+sudo tee <<EOF >/dev/null /etc/systemd/system/gear-node.service
 [Unit]
 Description=Gear Node
 After=network.target
@@ -26,7 +26,7 @@ Type=simple
 User=root
 WorkingDirectory=/root/
 ExecStart=/root/gear-node \
-        --name papadritta \
+        --name gear-node \
         --execution wasm \
         --log runtime
 Restart=on-failure
@@ -34,8 +34,8 @@ RestartSec=3
 LimitNOFILE=10000
 
 [Install]
-WantedBy=multi-user.target EOF 
-
+WantedBy=multi-user.target
+EOF
 
 
 
