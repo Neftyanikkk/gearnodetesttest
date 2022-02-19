@@ -34,8 +34,7 @@ RestartSec=3
 LimitNOFILE=10000
 
 [Install]
-WantedBy=multi-user.target
-EOF 
+WantedBy=multi-user.target EOF 
 
 
 
