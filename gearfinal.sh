@@ -31,5 +31,5 @@ cd gear
 make node-release
 
 
-gear-node
+./gear-node
 
