@@ -19,15 +19,13 @@ sleep 1
 
 sudo apt update && sudo apt upgrade -y
 sudo apt install -y git clang curl libssl-dev llvm libudev-dev
+apt install make
+apt install cargo
 
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-rustup toolchain add nightly
-rustup target add wasm32-unknown-unknown --toolchain nightly
-git clone https://github.com/gear-tech/gear.git
+git clone https://github.com/gear-tech/gear
 cd gear
 make node-release
 
 
-
+gear-node
 
