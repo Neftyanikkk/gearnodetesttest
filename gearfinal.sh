@@ -24,7 +24,7 @@ After=network.target
 [Service]
 Type=simple
 User=root
-WorkingDirectory=/gear/target/release/gear-node
+WorkingDirectory=/root/
 ExecStart=./gear-node \
         --name gear-node \
         --execution wasm \
