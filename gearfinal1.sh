@@ -10,5 +10,4 @@ cd gear
 make node-release
 
 ./gear-node
-systemctl status gear-node
 journalctl -n 100 -f -u gear-node
