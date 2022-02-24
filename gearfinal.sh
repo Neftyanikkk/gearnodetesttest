@@ -11,6 +11,7 @@ git clone https://github.com/gear-tech/gear.git
 cd gear
 make node-release
 
+cp /root/gear/target/release/gear-node /root/
 
 sudo tee <<EOF >/dev/null /etc/systemd/system/gear-node.service
 [Unit]
@@ -21,7 +22,7 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/root/
-ExecStart=/root/gear/target/release/gear-node \
+ExecStart=/root/gear-node \
         --name gear-node \
         --execution wasm \
         --log runtime
