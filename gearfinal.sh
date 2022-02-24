@@ -3,11 +3,6 @@
 curl -s https://raw.githubusercontent.com/cryptongithub/init/main/logo.sh | bash && sleep 1
 
 
-sudo apt update && sudo apt upgrade -y
-sudo apt install -y git clang curl libssl-dev llvm libudev-dev
-apt install make
-apt install cargo
-
 rustup toolchain add nightly
 rustup target add wasm32-unknown-unknown --toolchain nightly
 
@@ -15,6 +10,7 @@ rustup target add wasm32-unknown-unknown --toolchain nightly
 git clone https://github.com/gear-tech/gear.git
 cd gear
 make node-release
+
 
 sudo tee <<EOF >/dev/null /etc/systemd/system/gear-node.service
 [Unit]
@@ -24,8 +20,8 @@ After=network.target
 [Service]
 Type=simple
 User=root
-WorkingDirectory= /gear/target/release/gear-node
-ExecStart= /gear-node \
+WorkingDirectory=/root/
+ExecStart=/root/gear-node \
         --name gear-node \
         --execution wasm \
         --log runtime
