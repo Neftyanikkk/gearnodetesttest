@@ -1,45 +1,14 @@
 #!/bin/bash
-apt-get update 
-apt-get dist-upgrade -y
-apt-get autoremove -y
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y git clang curl libssl-dev llvm libudev-dev
 apt install make
-apt-get install git curl build-essential -y
-sudo apt install llvm clang
-curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-source ~/.cargo/env
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup toolchain add nightly
 rustup target add wasm32-unknown-unknown --toolchain nightly
-
-curl -s https://raw.githubusercontent.com/cryptongithub/init/main/logo.sh | bash && sleep 1
-
-cd
 git clone https://github.com/gear-tech/gear.git
 cd gear
 make node-release
-sudo cp gear-node /root
 
-sudo tee <<EOF >/dev/null /etc/systemd/system/gear-node.service
-[Unit]
-Description=Gear Node
-After=network.target
-
-[Service]
-Type=simple
-User=root
-WorkingDirectory=/root/
-ExecStart=/root/gear-node \
-        --name gear-node \
-        --execution wasm \
-        --log runtime
-Restart=on-failure
-RestartSec=3
-LimitNOFILE=10000
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-systemctl daemon-reload
-systemctl start gear-node
+./gear-node
 systemctl status gear-node
 journalctl -n 100 -f -u gear-node
