@@ -1,4 +1,5 @@
 #!/bin/bash
+curl -s https://raw.githubusercontent.com/cryptongithub/init/main/logo.sh | bash && sleep 1
 git clone https://github.com/gear-tech/gear.git
 cd gear
 make node-release
