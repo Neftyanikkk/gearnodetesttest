@@ -9,7 +9,7 @@ rustup target add wasm32-unknown-unknown --toolchain nightly
 
 git clone https://github.com/gear-tech/gear.git
 cd gear
-make node-release
+cargo build -p gear-node --release
 
 cp /root/gear/target/release/gear-node /root/
 
