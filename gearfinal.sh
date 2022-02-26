@@ -1,5 +1,10 @@
 #!/bin/bash
-
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y git clang curl libssl-dev llvm libudev-dev build-essential -y
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+reboot
+rustup toolchain add nightly
+rustup target add wasm32-unknown-unknown --toolchain nightly
 curl -s https://raw.githubusercontent.com/cryptongithub/init/main/logo.sh | bash && sleep 1
 
 
