@@ -1,6 +1,5 @@
 #!/bin/bash
-rustup toolchain add nightly
-rustup target add wasm32-unknown-unknown --toolchain nightly
+
 curl -s https://raw.githubusercontent.com/cryptongithub/init/main/logo.sh | bash && sleep 1
 
 
