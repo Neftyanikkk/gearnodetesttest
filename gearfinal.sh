@@ -3,10 +3,6 @@
 curl -s https://raw.githubusercontent.com/cryptongithub/init/main/logo.sh | bash && sleep 1
 
 
-rustup toolchain add nightly
-rustup target add wasm32-unknown-unknown --toolchain nightly
-
-
 git clone https://github.com/gear-tech/gear.git
 cd gear
 cargo build -p gear-node --release
