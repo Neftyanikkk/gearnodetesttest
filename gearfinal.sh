@@ -1,7 +1,9 @@
 #!/bin/bash
 
 curl -s https://raw.githubusercontent.com/cryptongithub/init/main/logo.sh | bash && sleep 1
-
+echo -e '\n\e[42mYour node name:'
+read n
+sleep 1
 
 git clone https://github.com/gear-tech/gear.git
 cd gear
@@ -19,9 +21,10 @@ Type=simple
 User=root
 WorkingDirectory=/root/
 ExecStart=/root/gear-node \
-        --name gear-node \
+        --name $n \
         --execution wasm \
-        --log runtime
+        --log runtime \
+        --telemetry-url 'ws://telemetry-backend-shard.gear-tech.io:32001/submit 0'
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=10000
