@@ -3,6 +3,7 @@
 curl -s https://raw.githubusercontent.com/cryptongithub/init/main/logo.sh | bash && sleep 1
 echo -e '\n\e[42mYour node name:'
 read n
+nodename=$n
 git clone https://github.com/gear-tech/gear.git
 cd gear
 cargo build -p gear-node --release
@@ -19,7 +20,7 @@ Type=simple
 User=root
 WorkingDirectory=/root/
 ExecStart=/root/gear-node \
-        --name $n \
+        --name $nodename \
         --execution wasm \
         --log runtime \
         --telemetry-url 'ws://telemetry-backend-shard.gear-tech.io:32001/submit 0'
