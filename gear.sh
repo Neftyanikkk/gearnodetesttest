@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo apt install curl
 curl -s https://raw.githubusercontent.com/cryptongithub/init/main/logo.sh | bash && sleep 2
 
 echo -e "\e[1m\e[32m1. Installing required dependencies... \e[0m" && sleep 1
