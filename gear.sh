@@ -7,7 +7,6 @@ sudo apt install curl git clang libssl-dev llvm libudev-dev -y
 cd $HOME
 rm -rf gear
 
-echo "∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨"
 
 echo -e "\e[1m\e[32m2. Installing Rust... \e[0m" && sleep 1
 sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -73,13 +72,4 @@ echo "∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨�
 
 echo -e "\e[1m\e[32mNode Started \e[0m"
 
-echo "∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨"
 
-echo -e "\e[1m\e[32mTo stop the Gear Node: \e[0m" 
-echo -e "\e[1m\e[39m    systemctl stop gear-node.service \n \e[0m" 
-
-echo -e "\e[1m\e[32mTo start the Gear Node: \e[0m" 
-echo -e "\e[1m\e[39m    systemctl start gear-node.service \n \e[0m" 
-
-echo -e "\e[1m\e[32mTo check the Gear Node Logs: \e[0m" 
-echo -e "\e[1m\e[39m    journalctl -u gear-node.service -f \n \e[0m" 
