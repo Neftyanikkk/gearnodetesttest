@@ -44,25 +44,21 @@ echo "=================================================="
 
 echo -e "\e[1m\e[32m7. Creating service for Gear Node \e[0m"
 
-sudo tee <<EOF >/dev/null /etc/systemd/system/gear-node.service
-[Unit]
+echo "[Unit]
 Description=Gear Node
-After=network.target
+
 [Service]
+User=$USER
 Type=simple
-User=root
-WorkingDirectory=/root/
-ExecStart=/root/gear-node \
-        --name $nodename \
-        --execution wasm \
-        --log runtime \
-        --telemetry-url 'ws://telemetry-backend-shard.gear-tech.io:32001/submit 0'
-Restart=on-failure
-RestartSec=3
-LimitNOFILE=10000
+ExecStart=gear-node --telemetry-url 'ws://telemetry-backend-shard.gear-tech.io:32001/submit 0'  --name '$NODE_NAME'
+Restart=always
+RestartSec=120
+
 [Install]
 WantedBy=multi-user.target
-EOF
+" > $HOME/gear-node.service
+
+sudo mv $HOME/gear-node.service /etc/systemd/system
 
 echo "=================================================="
 
