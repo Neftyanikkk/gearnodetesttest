@@ -14,6 +14,7 @@ echo -e "\e[1m\e[32m7. Creating service for Gear Node \e[0m"
 
 echo "[Unit]
 Description=Gear Node
+After=network.target
 
 [Service]
 User=$USER
